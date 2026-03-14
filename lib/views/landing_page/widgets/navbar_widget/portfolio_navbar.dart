@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 /// ---------------------------------------------------------------------------
@@ -7,15 +5,20 @@ import 'package:flutter/material.dart';
 /// ---------------------------------------------------------------------------
 
 class PortfolioNavbar extends StatefulWidget {
-  const PortfolioNavbar({super.key});
+  final int currentIndex;
+  final Function(int) onTap;
+
+  const PortfolioNavbar({
+    super.key,
+    required this.currentIndex,
+    required this.onTap,
+  });
 
   @override
   State<PortfolioNavbar> createState() => _PortfolioNavbarState();
 }
 
 class _PortfolioNavbarState extends State<PortfolioNavbar> {
-  int? activeIndex; // No default highlight on landing page
-
   final List<String> navItems = [
     "Home",
     "Research",
@@ -24,16 +27,6 @@ class _PortfolioNavbarState extends State<PortfolioNavbar> {
     "About Me",
   ];
 
-  void _onNavTap(int index) {
-    setState(() {
-      activeIndex = index;
-    });
-
-    debugPrint("Tapped: ${navItems[index]}");
-
-    // TODO: Add scroll-to-section logic here
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,9 +34,7 @@ class _PortfolioNavbarState extends State<PortfolioNavbar> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          /// -----------------------------------------------------------------
-          /// Personal Logo / Initials
-          /// -----------------------------------------------------------------
+          /// Logo
           const Text(
             'EC',
             style: TextStyle(
@@ -53,13 +44,14 @@ class _PortfolioNavbarState extends State<PortfolioNavbar> {
             ),
           ),
 
+          /// Navigation items
           Row(
             children: List.generate(
               navItems.length,
               (index) => _NavItem(
                 title: navItems[index],
-                isActive: activeIndex == index,
-                onTap: () => _onNavTap(index),
+                isActive: widget.currentIndex == index,
+                onTap: () => widget.onTap(index),
               ),
             ),
           ),
@@ -124,8 +116,9 @@ class _NavItemState extends State<_NavItem> {
                   curve: Curves.easeOut,
                   style: TextStyle(
                     fontSize: 14,
-                    fontWeight:
-                        widget.isActive ? FontWeight.w600 : FontWeight.w400,
+                    fontWeight: widget.isActive
+                        ? FontWeight.w600
+                        : FontWeight.w400,
                     color: highlight
                         ? const Color(0xFF3D4450) //414B55
                         : Colors.black.withOpacity(0.7),

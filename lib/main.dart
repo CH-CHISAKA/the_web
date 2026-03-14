@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:the_web/views/landing_page/home_page/home_page.dart';
+import 'package:the_web/views/landing_page/landing_page.dart';
 
 
 /// ------------------------------------
@@ -55,8 +56,8 @@ class MyApp extends StatelessWidget {
         // Use Material 3 design system
         useMaterial3: true,
       ),
-      // Set the initial screen of the app to HomePage
-      home: const HomePage(),
+      // Set the initial screen of the app to LandingPage
+      home: const LandingPage(),
     );
   }
 }

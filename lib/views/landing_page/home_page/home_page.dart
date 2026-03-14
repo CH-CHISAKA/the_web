@@ -18,26 +18,9 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: [
                 HeroSection(),
-                // OtherSections(),
-
-                SizedBox(height: 1800,)
               ],
             ),
           ),
-
-          /// -----------------------------------------------------------------
-          /// Background Hero Section
-          /// -----------------------------------------------------------------
-          ///
-          /// This acts as the full-screen background or
-          /// main introduction section of the landing page.
-
-          // HeroSection(),  --- IGNORE ---
-
-          /// -----------------------------------------------------------------
-          /// Navigation Bar (Overlay)
-          /// -----------------------------------------------------------------
-          Positioned(top: 0, left: 0, right: 0, child: PortfolioNavbar()),
         ],
       ),
     );

@@ -131,21 +131,6 @@ class HeroSection extends StatelessWidget {
                 ),
               ),
             ),
-
-            /// Right Side Section Indicators
-            Positioned(
-              right: 40,
-              top: 250,
-              child: Column(
-                children: const [
-                  _SectionIndicator(index: "01"),
-                  _SectionIndicator(index: "02"),
-                  _SectionIndicator(index: "03"),
-                  _SectionIndicator(index: "04"),
-                  _SectionIndicator(index: "05"),
-                ],
-              ),
-            ),
           ],
         ),
       ),
@@ -153,24 +138,3 @@ class HeroSection extends StatelessWidget {
   }
 }
 
-/// Vertical side indicator numbers
-class _SectionIndicator extends StatelessWidget {
-  final String index;
-
-  const _SectionIndicator({required this.index});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 14),
-      child: Text(
-        index,
-        style: TextStyle(
-          fontSize: 12,
-          color: Colors.black.withOpacity(0.35),
-          fontWeight: FontWeight.w400,
-        ),
-      ),
-    );
-  }
-}
