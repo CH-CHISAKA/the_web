@@ -17,11 +17,11 @@ class _PortfolioNavbarState extends State<PortfolioNavbar> {
   int? activeIndex; // No default highlight on landing page
 
   final List<String> navItems = [
-    "About",
+    "Home",
     "Research",
     "Projects",
     "Publications",
-    "Contact",
+    "About Me",
   ];
 
   void _onNavTap(int index) {

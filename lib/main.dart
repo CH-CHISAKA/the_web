@@ -2,8 +2,7 @@
 // Provides access to pre-built UI-Components/Widgets such as MaterialApp, Scaffold, AppBar, Button, Text etc.
 
 import 'package:flutter/material.dart';
-import 'package:the_web/views/home_screen/components/portfolio_navbar.dart';
-import 'package:the_web/views/home_screen/main_home_screen.dart';
+import 'package:the_web/views/landing_page/home_page/home_page.dart';
 
 
 /// ------------------------------------
@@ -56,8 +55,8 @@ class MyApp extends StatelessWidget {
         // Use Material 3 design system
         useMaterial3: true,
       ),
-      // Set the initial screen of the app to MainHomeScreen
-      home: const MainHomeScreen(),
+      // Set the initial screen of the app to HomePage
+      home: const HomePage(),
     );
   }
 }
